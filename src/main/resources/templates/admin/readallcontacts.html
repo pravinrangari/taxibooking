@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>EMAIL</th>
+                <th>MESSAGE</th>
+                <th>PHONE</th>
+                <th>ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="contact : ${allcontacts}">
+                <td th:text="${contact.id}"></td>
+                <td th:text="${contact.name}"></td>
+                <td th:text="${contact.email}"></td>
+                <td th:text="${contact.message}"></td>
+                <td th:text="${contact.phone}"></td>
+                <td>
+                    <a th:href="@{/admin/deleteContact/{id}(id=${contact.id})}" class="delete-btn">
+                        DELETE
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
